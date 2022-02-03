@@ -7,8 +7,9 @@ fluidPage(
   # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
-      selectInput("artists", label = "Select Artists:",
-                  choices = unique(df$name), multiple = TRUE)
+      selectizeInput("artists", label = "Select Artists:",
+                  choices = unique(df$name), multiple = TRUE,
+                  options = list(maxItems = 4))
     ),
 
     # Show a plot of the generated distribution
