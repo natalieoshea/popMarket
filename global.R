@@ -1,7 +1,5 @@
 # load libraries
 library(shiny)
-<<<<<<< Updated upstream
-=======
 library(tidyverse)
 
 # load data
@@ -55,4 +53,3 @@ theme_custom <- function(...) {
       ...
     )
 }
->>>>>>> Stashed changes

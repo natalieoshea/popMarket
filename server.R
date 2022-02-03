@@ -1,15 +1,9 @@
 # Define server logic required to draw a histogram
 function(input, output) {
 
-  output$distPlot <- renderPlot({
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2]
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+  final_df <- reactive({
+    req(input$artists)
 
-<<<<<<< Updated upstream
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-=======
     # filter data to only selected artists and dates
     final_df <- df_long %>%
       filter(name %in% input$artists) %>%
@@ -37,9 +31,5 @@ function(input, output) {
       theme_custom() +
       # give each name it's own panel
       facet_wrap(~name)
->>>>>>> Stashed changes
   })
 }
-
-# Run the application
-#shinyApp(ui = ui, server = server)
